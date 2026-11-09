@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dendi Topup – Owner Tool</title>
+<style>body{font-family:system-ui,sans-serif;max-width:480px;margin:0 auto;padding:18px;background:#0c0e14;color:#f0f2f8}input,button,textarea{width:100%;padding:12px;margin:6px 0 12px;border-radius:10px;border:1px solid #333;background:#171a23;color:#fff;font-size:16px;box-sizing:border-box}button{background:#ff5a00;border:0;font-weight:700}textarea{height:120px;word-break:break-all}.w{background:#3a1d00;border-radius:10px;padding:10px;font-size:13px}</style></head><body>
+<h2>Dendi Topup – ওয়ালেট কোড বানান</h2><div class="w">⚠️ এই ফাইল শুধু আপনার ফোনে রাখুন। GitHub বা কাউকে দেবেন না। এতে আপনার গোপন চাবি আছে।</div>
+<p>গ্রাহকের টাকা বিকাশ/নগদে আসার পর মোবাইল নম্বর আর টাকার পরিমাণ দিয়ে কোড বানিয়ে গ্রাহককে টেলিগ্রামে পাঠান।</p>
+<label>গ্রাহকের মোবাইল নম্বর (সাইটে যে নম্বরে অ্যাকাউন্ট)</label><input id="p" type="tel" maxlength="11" placeholder="01XXXXXXXXX">
+<label>টাকার পরিমাণ</label><input id="a" type="number" placeholder="500"><button id="g">কোড বানান</button><textarea id="o" readonly placeholder="কোড এখানে আসবে"></textarea><button id="c">কপি করুন</button>
+<script>var PRV={"key_ops": ["sign"], "ext": true, "kty": "EC", "x": "FiN8rvNRBhSjVhbvYJgPB9YfLXlpNeEiTiW5bhGrkbY", "y": "w0jXGzxbmtUdjYyscqkWPmTINMacH7qAKEzXpIRmaz4", "crv": "P-256", "d": "4ZKr8P1ZLSCGjn3pnV8MHKohBOzBHxwdlYdLwexjJvQ"};
+function b64(b){return btoa(String.fromCharCode.apply(null,new Uint8Array(b))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")}
+document.getElementById("g").onclick=async function(){var p=document.getElementById("p").value.trim(),a=parseInt(document.getElementById("a").value,10);
+if(!/^01\d{9}$/.test(p)||!(a>0)){alert("সঠিক নম্বর ও টাকা দিন");return}
+var id=Math.random().toString(36).slice(2,10),pl=p+"|"+a+"|"+id,k=await crypto.subtle.importKey("jwk",PRV,{name:"ECDSA",namedCurve:"P-256"},false,["sign"]),
+sig=await crypto.subtle.sign({name:"ECDSA",hash:"SHA-256"},k,new TextEncoder().encode(pl));
+document.getElementById("o").value=b64(new TextEncoder().encode(pl))+"."+b64(sig)};
+document.getElementById("c").onclick=function(){var o=document.getElementById("o");o.select();document.execCommand("copy");alert("কপি হয়েছে")};
+</script></body></html>
