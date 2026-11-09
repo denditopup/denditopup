@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dendi Topup – ফ্রি ফায়ার ডায়মন্ড টপআপ</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff5a00">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f7;--card:#fff;--ink:#14161c;--mut:#5b6272;--line:#dde2ec;--fire:#ff5a00;--gold:#ffc62e;--navy:#0b1230;--ok:#15935a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0c0e14;--card:#171a23;--ink:#f0f2f8;--mut:#98a0b3;--line:#2a2f3d}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0c0e14;--card:#171a23;--ink:#f0f2f8;--mut:#98a0b3;--line:#2a2f3d}
+*{box-sizing:inherit}html{scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri",system-ui,sans-serif;font-size:15px;padding-bottom:84px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:8px;line-height:1}
+.mark{border-radius:50%;flex:none;box-shadow:0 0 0 2px var(--gold)}.logo b{font-size:21px;font-weight:700;letter-spacing:.2px}.logo b i{font-style:normal;color:var(--fire)}
+.logo small{display:block;font-size:10.5px;color:var(--mut);margin-top:2px}
+.btn{border:0;border-radius:8px;padding:9px 16px;font:600 14px "Hind Siliguri",sans-serif;cursor:pointer;background:var(--ink);color:var(--bg)}
+.btn.fire{background:var(--fire);color:#fff}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:focus-visible,.tile:focus-visible,.nav button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.notice{display:flex;gap:8px;align-items:center;margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13.5px}
+.notice span{background:var(--ink);color:var(--bg);border-radius:6px;padding:2px 8px;font-weight:600;font-size:12px;white-space:nowrap}
+.slider{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/8.4}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:18px 20px;color:#fff;opacity:0;transition:opacity .5s}
+.slide.on{opacity:1}.slide h2{margin:0 0 4px;font-size:clamp(20px,6vw,28px);line-height:1.2;max-width:70%}.slide p{margin:0;font-size:13.5px;opacity:.92;max-width:70%}
+.slide svg{position:absolute;right:10px;bottom:-6px;width:34%;height:80%;opacity:.95}
+.s1{background:linear-gradient(120deg,#190b02,#a32c00 70%,#ff7a1a)}.s2{background:linear-gradient(120deg,#07122e,#0a3d8f 70%,#22a1ff)}.s3{background:linear-gradient(120deg,#0b1f14,#0f6a3d 70%,#33c47a)}
+.dots{display:flex;gap:6px;justify-content:center;margin:8px 0}.dots i{width:18px;height:4px;border-radius:2px;background:var(--line)}.dots i.on{background:var(--fire)}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 4px}
+.quick a{display:flex;align-items:center;gap:8px;justify-content:center;background:var(--ink);color:var(--bg);border-radius:10px;padding:10px;text-decoration:none;font-weight:600;font-size:14px}
+h3.sec{display:flex;align-items:center;gap:10px;margin:22px 0 12px;font-size:19px}
+h3.sec:before{content:"";width:4px;height:22px;background:var(--fire);border-radius:2px}h3.sec:after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;text-align:center;padding:0;font:inherit;color:inherit;display:flex;flex-direction:column;transition:transform .15s}
+.tile:active{transform:scale(.97)}
+.art{position:relative;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#fff}
+.art svg{width:54%}.art b{font-size:13px;font-weight:700;line-height:1.1;text-shadow:0 1px 4px #000a;padding:0 4px}
+.art em{position:absolute;top:5px;left:5px;font:700 8.5px "Hind Siliguri",sans-serif;background:#000b;color:var(--gold);padding:1px 5px;border-radius:4px;font-style:normal}
+.tile>span{padding:7px 4px;font-size:12px;font-weight:500;line-height:1.25;min-height:38px;display:flex;align-items:center;justify-content:center}
+.a1{background:linear-gradient(160deg,#0f3d1f,#071a0e)}.a2{background:linear-gradient(160deg,#3b2a0a,#120b02)}.a3{background:linear-gradient(160deg,#0d2f5c,#06142b)}.a4{background:linear-gradient(160deg,#4a0f2e,#1a0511)}.a5{background:linear-gradient(160deg,#6b2300,#1d0a00)}
+.recent{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.recent h4{margin:0 0 8px;font-size:17px;display:flex;align-items:center;gap:8px}.live{font-size:12px;color:var(--ok);font-weight:500}
+.row{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.av{width:34px;height:34px;border-radius:50%;background:var(--fire);color:#fff;display:grid;place-items:center;font-weight:700}
+.row div{flex:1;min-width:0}.row small{display:block;color:var(--mut);font-size:12px}
+.pill{font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:#fff1c9;color:#7a5200}
+.empty{color:var(--mut);font-size:13.5px;margin:0;padding:6px 0}
+.pay{display:flex;gap:10px;align-items:center;border-radius:14px;padding:16px;color:#fff;background:linear-gradient(120deg,#d4145a,#ff5a00)}
+.pay b{font-size:17px;display:block}.pay span{font-size:13px;opacity:.95}
+.steps{margin:0;padding-left:20px;line-height:1.75}
+footer{background:var(--navy);color:#cfd6f0;margin-top:26px;padding:26px 0 30px}
+footer h5{margin:0 0 8px;font-size:15px;letter-spacing:.3px;color:#fff}footer p{margin:0 0 12px;font-size:13px;line-height:1.5}
+.soc{display:flex;gap:10px;margin-bottom:20px}.soc a{width:42px;height:42px;border:1px solid #3a4574;border-radius:10px;display:grid;place-items:center;color:#fff}
+.help{display:flex;gap:10px;align-items:center;border:1px solid #3a4574;border-radius:10px;padding:12px;text-decoration:none;color:#fff;font-size:14px}
+.links{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin:20px 0 10px;font-size:13px}.links button{background:none;border:0;color:#cfd6f0;font:inherit;cursor:pointer;padding:2px 0}
+.copy{text-align:center;font-size:12px;color:#8e98c2}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav div{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.nav button{background:none;border:0;color:var(--mut);font:500 12px "Hind Siliguri",sans-serif;padding:8px 0;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.nav button.on{color:var(--fire)}.nav svg{width:22px;height:22px}
+.modal{position:fixed;inset:0;z-index:50;background:#000a;display:none;align-items:flex-end;justify-content:center}
+.modal.on{display:flex}
+.sheet{background:var(--card);width:100%;max-width:560px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:18px 16px calc(20px + env(safe-area-inset-bottom,0px));animation:up .25s}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+.sheet h4{margin:0 0 4px;font-size:19px}.sheet .x{float:right;background:none;border:0;color:var(--mut);font-size:26px;cursor:pointer;line-height:1}
+label{display:block;font-weight:600;font-size:13.5px;margin:14px 0 6px}
+input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+.pk{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pk button{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:9px;font:inherit;cursor:pointer;text-align:left}
+.pk button b{display:block;font-size:14px}.pk button span{color:var(--fire);font-weight:600}.pk button.on{border-color:var(--fire);background:#ff5a0016}
+.pm{display:flex;gap:8px}.pm button{flex:1;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:9px 4px;font:600 13.5px "Hind Siliguri",sans-serif;cursor:pointer}.pm button.on{border-color:var(--fire);background:#ff5a0016}
+.box{background:var(--bg);border:1px dashed var(--fire);border-radius:10px;padding:10px 12px;font-size:13.5px;margin-top:10px;line-height:1.55}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:17px;margin:14px 0 10px}
+.wheel{position:relative;width:min(290px,80vw);aspect-ratio:1;margin:16px auto 6px}.wheel svg{width:100%;height:100%;transition:transform 4.2s cubic-bezier(.12,.7,.1,1);filter:drop-shadow(0 4px 10px #0006)}.ptr{position:absolute;top:-8px;left:50%;margin-left:-11px;border:11px solid transparent;border-top:22px solid var(--gold);border-bottom:0;z-index:2;filter:drop-shadow(0 2px 2px #0008)}
+.inst{position:fixed;left:10px;right:10px;bottom:calc(66px + env(safe-area-inset-bottom,0px));max-width:540px;margin:0 auto;z-index:19;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:none;align-items:center;gap:10px;box-shadow:0 6px 20px #0003}.inst.on{display:flex}.inst img{width:38px;height:38px;border-radius:10px}.inst div{flex:1;min-width:0;font-size:13px;line-height:1.3}.inst b{display:block;font-size:14px}.inst .c{background:none;border:0;color:var(--mut);font-size:24px;cursor:pointer;padding:0 4px}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:99px;font-size:13.5px;z-index:60;display:none}
+.toast.on{display:block}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="gem" viewBox="0 0 64 64"><path d="M16 8h32l12 16-28 34L4 24z" fill="#2fb4ff"/><path d="M16 8l16 16 16-16M4 24h56M32 24v34M32 24L20 24 32 58 44 24z" fill="none" stroke="#e8f7ff" stroke-width="2" stroke-linejoin="round"/><path d="M16 8l-12 16h28zM48 8l12 16H32z" fill="#7fd4ff"/></symbol>
+<symbol id="flame" viewBox="0 0 64 64"><path d="M32 3c3 12 18 18 18 36a18 18 0 0 1-36 0c0-8 4-12 7-16 1 6 4 8 6 8-2-10 1-20 5-28z" fill="#ff5a00"/><path d="M32 30c2 7 10 10 10 20a10 10 0 0 1-20 0c0-5 3-7 5-10 1 3 2 4 3 4-1-6 0-10 2-14z" fill="#ffc62e"/></symbol>
+</defs>
+</svg>
+
+<header><div class="wrap">
+<div class="logo">
+<img class="mark" src="data:image/webp;base64,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" width="44" height="44" alt="Dendi Topup logo">
+<div><b>DENDI <i>TOPUP</i></b><small>বিশ্বস্ত ফ্রি ফায়ার টপআপ শপ</small></div>
+</div>
+<button class="btn" id="loginBtn">Login</button>
+</div></header>
+
+<main class="wrap" id="home">
+<div class="notice"><span>নোটিস</span><div>অর্ডারে সমস্যা হলে টেলিগ্রামে মেসেজ করুন। দ্রুত সমাধান পাবেন।</div></div>
+
+<div class="slider" id="slider">
+<div class="slide s1 on"><h2>দ্রুত ডায়মন্ড টপআপ</h2><p>Dendi Topup থেকে এখনই অর্ডার করুন</p><svg><use href="#gem"/></svg></div>
+<div class="slide s2"><h2>১০০% নিরাপদ লেনদেন</h2><p>শুধু UID দিন, পাসওয়ার্ড লাগবে না</p><svg><use href="#flame"/></svg></div>
+<div class="slide s3"><h2>বিকাশ · নগদ · রকেট</h2><p>পছন্দের মাধ্যমে পেমেন্ট করুন</p><svg><use href="#gem"/></svg></div>
+</div>
+<div class="dots" id="dots"><i class="on"></i><i></i><i></i></div>
+
+<div class="quick">
+<a href="#" data-tg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3 2.5 10.4l5.3 1.8 2 6.3 3-3.7 4.6 3.4zM8.6 12.4l8.6-5.4-6.6 6.6-.3 3z"/></svg>Support Telegram</a>
+<a href="#" data-tg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.8"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6zM15.5 14.3c3.7-.4 6.5 1.3 6.5 5.2h-4.5c0-2-.7-3.8-2-5.2z"/></svg>Group Join</a>
+</div>
+
+<h3 class="sec">Special Offer</h3>
+<div class="grid" id="gSpecial"></div>
+
+<h3 class="sec" id="topup">FF TOP UP</h3>
+<div class="grid" id="gFF"></div>
+
+<h3 class="sec">Recent Orders</h3>
+<div class="recent"><h4>আপনার সাম্প্রতিক অর্ডার <span class="live">● Live</span></h4><div id="orders"></div></div>
+
+<div class="pay" style="margin-top:18px"><svg width="46" height="46" viewBox="0 0 24 24" fill="#fff"><path d="M3 3h8v8H3zm2 2v4h4V5zm8-2h8v8h-8zm2 2v4h4V5zM3 13h8v8H3zm2 2v4h4v-4zm9-2h3v3h-3zm4 0h3v5h-3zm-4 4h3v4h-3zm4 2h3v2h-3z"/></svg><div><b>কোনো খরচ ছাড়া বিকাশে টাকা পাঠান</b><span>অর্ডারের সময় পেমেন্ট নম্বর ও TrxID দিন</span></div></div>
+
+<h3 class="sec" id="tutorial">Tutorial</h3>
+<div class="recent"><ol class="steps">
+<li>পছন্দের প্যাকেজে ট্যাপ করুন</li><li>আপনার ফ্রি ফায়ার Player UID লিখুন</li><li>বিকাশ / নগদ / রকেটে টাকা পাঠান</li><li>TrxID দিয়ে অর্ডার কনফার্ম করুন — টেলিগ্রামে অর্ডার পৌঁছে যাবে</li></ol></div>
+</main>
+
+<footer id="contact"><div class="wrap">
+<h5>STAY CONNECTED</h5><p>কোনো সমস্যা পড়লে টেলিগ্রামে যোগাযোগ করবেন। তাহলে দ্রুত সমাধান পেয়ে যাবেন।</p>
+<div class="soc" aria-label="Social links">
+<a href="#" data-tg aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.5c0-.7.3-1 1-1h2V2h-3c-3 0-4.5 1.8-4.5 4.4V8H7v3.5h2.5V22H14V11.5h2.8L17 8z"/></svg></a>
+<a href="#" data-tg aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+<a href="#" data-tg aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8c-.2-1.5-.9-2.3-2.4-2.5C17.800 5.200 12 5.200 12 5.200s-5.800 0-7.600.3C2.900 5.700 2.200 6.500 2 8c-.2 1.300-.2 2.700-.2 4s0 2.700.2 4c.2 1.500.9 2.300 2.400 2.500 1.800.3 7.600.3 7.600.3s5.800 0 7.600-.3c1.500-.2 2.200-1 2.400-2.500.2-1.300.2-2.700.2-4s0-2.700-.2-4zM10 15V9l5 3z"/></svg></a>
+<a href="#" data-tg aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+</div>
+<h5>SUPPORT CENTER</h5>
+<a class="help" href="#" data-tg><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3 2.5 10.4l5.3 1.8 2 6.3 3-3.7 4.6 3.4z"/></svg><span><b>Help line [৯AM–১২PM]</b><br>টেলিগ্রাম সাপোর্ট</span></a>
+<div class="links"><button data-info="About Us">About Us</button><button data-info="Terms &amp; Conditions">Terms &amp; Conditions</button><button data-info="Privacy Policy">Privacy Policy</button><button data-info="Refund &amp; Return Policy">Refund &amp; Return Policy</button></div>
+<div class="copy">© Dendi Topup 2026 | All Rights Reserved</div>
+</div></footer>
+
+<nav class="nav"><div>
+<button class="on" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 9-8 9 8v10h-6v-6H9v6H3z"/></svg>Home</button>
+<button data-go="tutorial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></svg>Tutorial</button>
+<button data-go="topup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>TopUp</button>
+<button data-go="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.500"/><rect x="17" y="13" width="4" height="6" rx="1.500"/></svg>Contact Us</button>
+</div></nav>
+
+<div class="inst" id="inst"><img id="ii" alt=""><div><b>Dendi Topup অ্যাপ</b>হোম স্ক্রিনে রাখুন, এক ট্যাপে খুলুন</div><button class="btn fire" id="ib">Install</button><button class="c" id="ic" aria-label="বন্ধ করুন">×</button></div>
+<div class="modal" id="modal"><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ====== এখানে নিজের তথ্য বসান ====== */
+var CFG={tg:"denditopup",bkash:"01816805075",nagad:"01722259364",rocket:"01722259364"};
+/* ================================= */
+var D=function(n){return n.map(function(x){return{l:x[0]+" ডায়মন্ড",p:x[1]}})};
+var DIA=D([[25,22],[50,38],[115,78],[240,155],[610,390],[1240,780],[2530,1560]]);
+var P=[
+{id:"bonus",n:"100% TOPUP BONUS",t:"১০০% বোনাস",ic:"flame",a:"a5",sp:1,uid:1,k:DIA},
+{id:"ffuid",n:"FF TopUp (BD)",t:"FF UID টপআপ",ic:"gem",a:"a1",uid:1,k:DIA},
+{id:"dice",n:"Free Dice Spin",t:"ফ্রি স্পিন",ic:"dice",a:"a2",uid:1,k:[{l:"১টি স্পিন",p:10},{l:"৫টি স্পিন",p:45},{l:"১০টি স্পিন",p:85}]},
+{id:"wlite",n:"Weekly Lite (BD Server)",t:"উইকলি লাইট",ic:"card",a:"a3",uid:1,k:[{l:"Weekly Lite",p:45}]},
+{id:"like",n:"FF LIKE",t:"FF LIKE",ic:"like",a:"a3",uid:1,k:[{l:"১০০ লাইক",p:20},{l:"৫০০ লাইক",p:90},{l:"১০০০ লাইক",p:170}]},
+{id:"weekly",n:"WEEKLY",t:"উইকলি",ic:"gem",a:"a1",uid:1,k:[{l:"Weekly মেম্বারশিপ",p:160}]},
+{id:"wm",n:"Weekly/Monthly Offer",t:"উইকলি / মান্থলি",ic:"card",a:"a4",uid:1,k:[{l:"Weekly",p:160},{l:"Monthly",p:780}]},
+{id:"lvl",n:"New Level Up Pass",t:"লেভেল আপ পাস",ic:"pass",a:"a5",uid:1,k:[{l:"Level Up Pass",p:170}]},
+{id:"monthly",n:"MONTHLY",t:"মান্থলি",ic:"card",a:"a2",uid:1,k:[{l:"Monthly মেম্বারশিপ",p:780}]},
+{id:"indo",n:"Indonesia Server (UID)",t:"ইন্দোনেশিয়া সার্ভার",ic:"globe",a:"a4",uid:1,k:D([[70,70],[140,135],[355,330],[720,650]])},
+{id:"unipin",n:"Unipin Voucher (BD)",t:"UNIPIN ভাউচার",ic:"ticket",a:"a5",uid:0,k:[{l:"Unipin ৳100",p:105},{l:"Unipin ৳500",p:515}]}
+];
+var IC={
+gem:'<use href="#gem"/>',flame:'<use href="#flame"/>',
+dice:'<svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="10" fill="#7a2fd6" stroke="#fff" stroke-width="3"/><g fill="#fff"><circle cx="22" cy="22" r="4"/><circle cx="42" cy="22" r="4"/><circle cx="32" cy="32" r="4"/><circle cx="22" cy="42" r="4"/><circle cx="42" cy="42" r="4"/></g></svg>',
+card:'<svg viewBox="0 0 64 64"><rect x="4" y="12" width="56" height="40" rx="8" fill="#6a38d8" stroke="#ffc62e" stroke-width="3"/><path d="M4 24h56" stroke="#ffc62e" stroke-width="3"/><use href="#gem" x="22" y="28" width="22" height="22"/></svg>',
+like:'<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="29" fill="#1d7bff" stroke="#fff" stroke-width="3"/><path d="M22 29h-6v18h6zm4 18h16c2 0 3-1 3.500-3l2-11c.3-2-1-4-3-4H36l1-7c.3-2-1-4-3-4l-8 14z" fill="#fff"/></svg>',
+pass:'<svg viewBox="0 0 64 64"><rect x="8" y="6" width="48" height="52" rx="8" fill="#e0a500" stroke="#fff" stroke-width="3"/><path d="M32 14 46 30H37v14H27V30h-9z" fill="#fff"/><path d="M20 52h24" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>',
+globe:'<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#c8102e" stroke="#fff" stroke-width="3"/><path d="M4 32h56M32 4c-12 12-12 44 0 56M32 4c12 12 12 44 0 56" fill="none" stroke="#fff" stroke-width="2.500"/></svg>',
+ticket:'<svg viewBox="0 0 64 64"><path d="M4 16h56v10a6 6 0 0 0 0 12v10H4V38a6 6 0 0 0 0-12z" fill="#ffc62e" stroke="#fff" stroke-width="3"/><path d="M24 18v28" stroke="#7a5200" stroke-width="3" stroke-dasharray="4 4"/><use href="#gem" x="32" y="22" width="20" height="20"/></svg>'};
+function icon(k){var s=IC[k];return s.charAt(0)==="<"&&s.indexOf("<svg")===0?s:'<svg viewBox="0 0 64 64">'+s+'</svg>'}
+function $(s){return document.querySelector(s)}
+function store(k,v){try{if(v===undefined){return JSON.parse(localStorage.getItem(k))}localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+function toast(t){var e=$("#toast");e.textContent=t;e.classList.add("on");setTimeout(function(){e.classList.remove("on")},2200)}
+function tile(p){return '<button class="tile" data-p="'+p.id+'"><div class="art '+p.a+'"><em>FAST DELIVERY</em>'+icon(p.ic)+'<b>'+p.t+'</b></div><span>'+p.n+'</span></button>'}
+$("#gSpecial").innerHTML=P.filter(function(p){return p.sp}).map(tile).join("");
+$("#gFF").innerHTML=P.filter(function(p){return!p.sp}).map(tile).join("");
+function tgLink(txt){return"https://t.me/"+CFG.tg+(txt?"?text="+encodeURIComponent(txt):"")}
+document.addEventListener("click",function(e){
+ var t=e.target.closest("[data-p],[data-tg],[data-go],[data-info]");if(!t)return;
+ if(t.dataset.p){openOrder(P.filter(function(p){return p.id===t.dataset.p})[0])}
+ else if(t.hasAttribute("data-tg")){return}
+ else if(t.dataset.go){document.getElementById(t.dataset.go).scrollIntoView();document.querySelectorAll(".nav button").forEach(function(b){b.classList.toggle("on",b===t)})}
+ else if(t.dataset.info){info(t.dataset.info)}
+});
+function show(h){$("#sheet").innerHTML='<button class="x" aria-label="বন্ধ করুন" onclick="hide()">×</button>'+h;$("#modal").classList.add("on")}
+function hide(){$("#modal").classList.remove("on")}
+$("#modal").addEventListener("click",function(e){if(e.target.id==="modal")hide()});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")hide()});
+function info(t){var m={"About Us":"Dendi Topup একটি ফ্রি ফায়ার টপআপ শপ। আমরা নিরাপদ ও দ্রুত ডায়মন্ড টপআপ দিই।","Terms & Conditions":"ভুল UID দিলে টপআপের দায় গ্রাহকের। পেমেন্ট যাচাইয়ের পর টপআপ দেওয়া হবে।","Privacy Policy":"আপনার নাম ও ফোন নম্বর শুধু অর্ডার সম্পন্ন করতে ব্যবহার হয়। আমরা ফ্রি ফায়ার পাসওয়ার্ড চাই না।","Refund & Return Policy":"টপআপ সম্পন্ন হওয়ার পর রিফান্ড হবে না। টপআপ না এলে টেলিগ্রামে যোগাযোগ করুন।"};show("<h4>"+t+"</h4><p>"+m[t]+"</p>")}
+function user(){return store("dt_user")}
+function paintUser(){var u=user();$("#loginBtn").textContent=u?u.name.split(" ")[0]:"Login"}
+function accs(){return store("dt_acc")||{}}
+function hex(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return("0"+x.toString(16)).slice(-2)}).join("")}
+function hashPw(pw,salt){var s=salt+":"+pw;try{return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(hex)}catch(e){var h=5381;for(var i=0;i<s.length;i++){h=((h<<5)+h+s.charCodeAt(i))|0}return Promise.resolve("x"+h)}}
+var pending=null;
+function afterLogin(n){paintUser();paintOrders();hide();toast("স্বাগতম, "+n);if(pending){var q=pending;pending=null;openOrder(q)}}
+function auth(mode,note){var reg=mode==="register";
+ show('<h4>'+(reg?"নতুন অ্যাকাউন্ট খুলুন":"Login")+'</h4>'+(note?'<div style="color:var(--fire);font-size:13px;margin-top:4px">'+note+'</div>':'')+
+ '<div class="pm" style="margin-top:12px"><button data-m="login" class="'+(reg?"":"on")+'">Login</button><button data-m="register" class="'+(reg?"on":"")+'">Register</button></div>'+
+ (reg?'<label>আপনার নাম</label><input id="an" autocomplete="name">':'')+
+ '<label>মোবাইল নম্বর</label><input id="ap" type="tel" inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX" autocomplete="username">'+
+ '<label>পাসওয়ার্ড</label><input id="aw" type="password" placeholder="কমপক্ষে ৬ অক্ষর" autocomplete="'+(reg?"new-password":"current-password")+'">'+
+ (reg?'<label>পাসওয়ার্ড আবার দিন</label><input id="aw2" type="password" autocomplete="new-password">':'')+
+ '<button class="btn fire" style="width:100%;padding:13px;margin-top:16px" id="ago">'+(reg?"অ্যাকাউন্ট খুলুন":"Login")+'</button>');
+ document.querySelectorAll("#sheet .pm button").forEach(function(b){b.onclick=function(){auth(b.dataset.m,note)}});
+ $("#ago").onclick=function(){var p=$("#ap").value.trim(),w=$("#aw").value,a=accs();
+  if(!/^01\d{9}$/.test(p)){toast("সঠিক ১১ ডিজিটের নম্বর দিন");return}
+  if(w.length<6){toast("পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের দিন");return}
+  if(reg){var n=$("#an").value.trim();
+   if(!n){toast("আপনার নাম লিখুন");return}
+   if(w!==$("#aw2").value){toast("দুই পাসওয়ার্ড মেলেনি");return}
+   if(a[p]){toast("এই নম্বরে অ্যাকাউন্ট আছে, Login করুন");return}
+   var sl=String(Math.random()).slice(2);
+   hashPw(w,sl).then(function(h){a[p]={name:n,salt:sl,hash:h};store("dt_acc",a);store("dt_user",{name:n,phone:p});afterLogin(n)})}
+  else{var r=a[p];
+   if(!r){toast("এই নম্বরে অ্যাকাউন্ট নেই, Register করুন");return}
+   hashPw(w,r.salt).then(function(h){if(h!==r.hash){toast("পাসওয়ার্ড ভুল হয়েছে");return}store("dt_user",{name:r.name,phone:p});afterLogin(r.name)})}}}
+$("#loginBtn").onclick=function(){var u=user();
+ if(!u){auth("login");return}
+ show('<h4>আমার অ্যাকাউন্ট</h4><div class="box" style="border-style:solid">নাম: <b>'+u.name+'</b><br>মোবাইল: <b>'+u.phone+'</b></div><button class="btn ghost" style="width:100%;margin-top:14px;padding:12px" id="lo">Logout</button>');
+ $("#lo").onclick=function(){store("dt_user",null);paintUser();paintOrders();hide();toast("Logout হয়েছে")}};
+
+/* ফ্রি স্পিনের প্রাইজ ও সম্ভাবনা (w = সম্ভাবনা, মোট ১০০) – এখান থেকে বদলাতে পারবেন */
+var SP=[{t:"Weekly ৳49",w:0.8,c:"#ff5a00",win:1},{t:"আবার চেষ্টা",w:45,c:"#262d4a"},{t:"Monthly ৳650",w:0.2,c:"#b57f00",win:1},{t:"৳10 কুপন",w:4,c:"#1d7bff",win:1},{t:"Weekly Lite ৳25",w:2,c:"#7a2fd6",win:1},{t:"আবার চেষ্টা",w:45,c:"#262d4a"},{t:"Free Weekly",w:0.4,c:"#15935a",win:1},{t:"৳25 কুপন",w:2.6,c:"#d4145a",win:1}];
+function pick(){var r=Math.random()*100,a=0;for(var i=0;i<SP.length;i++){a+=SP[i].w;if(r<a)return i}return 1}
+function today(){return new Date().toDateString()}
+function claim(pr,uid,u){var m="স্পিন প্রাইজ ক্লেইম – Dendi Topup\nপ্রাইজ: "+pr+"\nPlayer UID: "+uid+"\nনাম: "+u.name+"\nফোন: "+u.phone;return'<div class="box" style="border-style:solid;text-align:center;font-size:16px">🎉 আপনি জিতেছেন: <b>'+pr+'</b></div><a class="btn fire" style="display:block;text-align:center;text-decoration:none;padding:13px;margin-top:12px" target="_blank" rel="noopener" href="'+tgLink(m).replace(/\x27/g,"%27")+'">টেলিগ্রামে প্রাইজ ক্লেইম করুন</a>'}
+function openSpin(){var u=user(),d=store("dt_spin")||{},done=!!d[u.phone],w=store("dt_win"),n=SP.length,st=360/n,sl="";
+ SP.forEach(function(x,i){var a0=i*st*Math.PI/180,a1=(i+1)*st*Math.PI/180,m=i*st+st/2;
+  sl+='<path d="M100 100L'+(100+96*Math.sin(a0)).toFixed(1)+' '+(100-96*Math.cos(a0)).toFixed(1)+'A96 96 0 0 1 '+(100+96*Math.sin(a1)).toFixed(1)+' '+(100-96*Math.cos(a1)).toFixed(1)+'Z" fill="'+x.c+'" stroke="#fff" stroke-width="1.5"/><text x="100" y="52" transform="rotate('+m+' 100 100) rotate(-90 100 52)" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="8.5" font-weight="700" font-family="Hind Siliguri,sans-serif">'+x.t+'</text>'});
+ var saved=done&&w&&w.phone===u.phone;
+ show('<h4>🎡 ফ্রি স্পিন</h4><div style="color:var(--mut);font-size:13px">প্রতি অ্যাকাউন্টে একটি ফ্রি স্পিন। জিতলে টেলিগ্রামে ক্লেইম করুন।</div><div class="wheel"><i class="ptr"></i><svg id="wh" viewBox="0 0 200 200">'+sl+'<circle cx="100" cy="100" r="13" fill="#fff" stroke="#ff5a00" stroke-width="3"/></svg></div>'+
+  (done?'<div class="box">এই অ্যাকাউন্ট থেকে ফ্রি স্পিন নেওয়া হয়ে গেছে। প্রতি অ্যাকাউন্টে একবারই স্পিন করা যায়।</div>':'<label>Player UID</label><input id="suid" inputmode="numeric" placeholder="প্রাইজ পাওয়ার জন্য আপনার UID দিন"><button class="btn fire" style="width:100%;padding:13px;margin-top:14px" id="spin">স্পিন করুন</button>')+'<div id="sres" style="margin-top:12px">'+(saved?claim(w.prize,w.uid,u):"")+'</div>');
+ var b=$("#spin");if(!b)return;
+ b.onclick=function(){var uid=$("#suid").value.trim();if(uid.length<6){toast("সঠিক Player UID দিন");return}
+  var us=store("dt_suid")||[];if(us.indexOf(uid)>-1){toast("এই UID দিয়ে আগেই স্পিন করা হয়েছে");return}us.push(uid);store("dt_suid",us);b.disabled=true;d[u.phone]=today();store("dt_spin",d);
+  var i=pick(),x=SP[i],j=(Math.random()-.5)*(st-12);
+  $("#wh").style.transform="rotate("+(1800+360-(i*st+st/2)+j)+"deg)";
+  setTimeout(function(){if(x.win){store("dt_win",{phone:u.phone,prize:x.t,uid:uid,day:today()});$("#sres").innerHTML=claim(x.t,uid,u)}else{$("#sres").innerHTML='<div class="box" style="text-align:center">এবার কিছু ওঠেনি। আপনার ফ্রি স্পিন শেষ।</div>'}},4400)}}
+var cur,sel=0,pm="bKash";
+function openOrder(p){var u=user();if(!u){pending=p;auth("register","অর্ডার করতে আগে অ্যাকাউন্ট খুলুন বা Login করুন");return}if(p.id==="dice"){openSpin();return}cur=p;sel=0;pm="bKash";
+ show('<h4>'+p.n+'</h4><div style="color:var(--mut);font-size:13px">প্যাকেজ বেছে নিন</div><div class="pk" id="pk"></div>'+
+ (p.uid?'<label>Player UID</label><input id="uid" inputmode="numeric" placeholder="যেমন 1234567890">':'')+
+ '<label>আপনার নাম / ফোন</label><input id="nm" value="'+(u.name||"")+'" placeholder="নাম"><input id="ph" style="margin-top:8px" type="tel" value="'+(u.phone||"")+'" placeholder="মোবাইল নম্বর">'+
+ '<label>পেমেন্ট মাধ্যম</label><div class="pm" id="pm"><button class="on">bKash</button><button>Nagad</button><button>Rocket</button></div>'+
+ '<div class="box" id="pbox"></div><label>Transaction ID (TrxID)</label><input id="trx" placeholder="টাকা পাঠানোর পর TrxID">'+
+ '<div class="tot"><span>মোট</span><span id="total"></span></div><button class="btn fire" style="width:100%;padding:13px" id="go">অর্ডার করুন</button>');
+ paintPk();paintPay();
+ $("#pk").onclick=function(e){var b=e.target.closest("button");if(!b)return;sel=+b.dataset.i;paintPk()};
+ $("#pm").onclick=function(e){var b=e.target.closest("button");if(!b)return;pm=b.textContent;paintPay()};
+ $("#go").onclick=submit}
+function paintPk(){$("#pk").innerHTML=cur.k.map(function(k,i){return'<button data-i="'+i+'" class="'+(i===sel?"on":"")+'"><b>'+k.l+'</b><span>৳'+k.p+'</span></button>'}).join("");$("#total").textContent="৳"+cur.k[sel].p}
+function paintPay(){document.querySelectorAll("#pm button").forEach(function(b){b.classList.toggle("on",b.textContent===pm)});var n={bKash:CFG.bkash,Nagad:CFG.nagad,Rocket:CFG.rocket}[pm];$("#pbox").innerHTML=pm+' (Send Money) নম্বর: <b>'+n+'</b><br>৳'+cur.k[sel].p+' পাঠিয়ে নিচে TrxID দিন।'}
+function submit(){var uid=cur.uid?$("#uid").value.trim():"-",nm=$("#nm").value.trim(),ph=$("#ph").value.trim(),trx=$("#trx").value.trim();
+ if(cur.uid&&uid.length<6){toast("সঠিক Player UID দিন");return}
+ if(!nm||ph.length<11){toast("নাম ও ১১ ডিজিটের নম্বর দিন");return}
+ if(trx.length<6){toast("TrxID দিন");return}
+ var u0=user()||{},k=cur.k[sel],o={n:cur.n,k:k.l,p:k.p,nm:nm,ph:u0.phone,t:Date.now()};
+ var list=store("dt_orders")||[];list.unshift(o);store("dt_orders",list.slice(0,8));paintOrders();
+ var msg="নতুন অর্ডার – Dendi Topup\nপ্রোডাক্ট: "+cur.n+"\nপ্যাকেজ: "+k.l+"\nমূল্য: ৳"+k.p+"\nPlayer UID: "+uid+"\nনাম: "+nm+"\nফোন: "+ph+"\nপেমেন্ট: "+pm+"\nTrxID: "+trx;
+ show('<h4>অর্ডার তৈরি হয়েছে ✅</h4><p>নিচের বাটনে ট্যাপ করে টেলিগ্রামে অর্ডারটা পাঠান। মেসেজ আগে থেকেই লেখা থাকবে, শুধু Send চাপুন।</p><a class="btn fire" style="display:block;text-align:center;text-decoration:none;padding:13px" target="_blank" rel="noopener" href="'+tgLink(msg).replace(/'/g,"%27")+'">টেলিগ্রামে অর্ডার পাঠান</a>')}
+function paintOrders(){var u1=user(),l=(store("dt_orders")||[]).filter(function(o){return u1&&o.ph===u1.phone});$("#orders").innerHTML=l.length?l.map(function(o){return'<div class="row"><div class="av">'+o.nm.charAt(0).toUpperCase()+'</div><div><b>'+o.nm+'</b><small>'+o.k+' · ৳'+o.p+'</small></div><span class="pill">Pending</span></div>'}).join(""):'<p class="empty">এখনো কোনো অর্ডার নেই। উপরের একটি প্যাকেজে ট্যাপ করে অর্ডার দিন।</p>'}
+var si=0,sl=document.querySelectorAll(".slide"),dt=document.querySelectorAll("#dots i");
+var dp=null,sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone;
+(function(){var b=$("#inst");if(sa||store("dt_inst")==="x")return;$("#ii").src=document.querySelector(".mark").src;
+ setTimeout(function(){b.classList.add("on")},1500);
+ window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e});
+ window.addEventListener("appinstalled",function(){b.classList.remove("on");toast("অ্যাপ ইনস্টল হয়েছে")});
+ $("#ic").onclick=function(){b.classList.remove("on");store("dt_inst","x")};
+ $("#ib").onclick=function(){if(dp){dp.prompt();dp.userChoice.then(function(){dp=null;b.classList.remove("on")})}else{var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);show('<h4>অ্যাপ ইনস্টল করুন</h4><div class="box" style="border-style:solid">'+(ios?'Safari-তে নিচের <b>Share</b> বাটনে ট্যাপ করুন, তারপর <b>Add to Home Screen</b> বেছে নিন।':'ব্রাউজারের উপরের <b>⋮</b> মেনুতে ট্যাপ করে <b>Install app</b> বা <b>Add to Home screen</b> বেছে নিন।')+'</div>')}}})();
+try{if("serviceWorker" in navigator&&location.protocol==="https:")navigator.serviceWorker.register("sw.js").catch(function(){})}catch(e){}
+document.querySelectorAll("[data-tg]").forEach(function(a){a.href=tgLink();a.target="_blank";a.rel="noopener"});
+setInterval(function(){sl[si].classList.remove("on");dt[si].classList.remove("on");si=(si+1)%sl.length;sl[si].classList.add("on");dt[si].classList.add("on")},3500);
+paintUser();paintOrders();
+</script>
+</body>
+</html>
